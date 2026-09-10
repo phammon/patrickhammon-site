@@ -9,6 +9,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .profile-photo,.about-photo{margin:0}
+    .profile-photo{margin-bottom:1.35rem;border:1px solid rgba(157,212,232,.27);background:#071a2b}
+    .profile-photo img{display:block;width:100%;height:clamp(260px,32vw,390px);object-fit:cover;object-position:center 22%;filter:saturate(.9)}
+    .profile-photo figcaption,.about-photo figcaption{padding:.7rem .85rem;color:var(--muted);font:400 .62rem "DM Mono",monospace;letter-spacing:.1em;text-transform:uppercase}
+    .about-photo{width:min(100%,340px);border:1px solid rgba(7,26,43,.25);background:var(--paper);transform:rotate(-3deg)}
+    .about-photo img{display:block;width:100%;aspect-ratio:3 / 4;object-fit:cover;object-position:center 18%;filter:saturate(.9)}
+    @media(max-width:900px){.about-photo{width:min(55vw,280px)}}
+    @media(max-width:680px){.profile-photo img{height:330px}.about-photo{width:min(100%,280px)}}
+  </style>
 </head>
 <body>
   <div class="site-shell">
@@ -31,6 +41,7 @@
           <p class="support-copy">Buying, selling, or simply planning ahead? Call <a href="tel:4102992029">410-299-2029</a> or send a note. A good first conversation does not need a deadline.</p>
         </div>
         <aside class="signal-board" aria-label="Patrick's working philosophy">
+          <figure class="profile-photo"><img src="assets/patrick-avatar.png" alt="Patrick Hammon, Ocala real estate professional and software engineer"><figcaption>Patrick Hammon / Ocala, Florida</figcaption></figure>
           <div class="board-topline"><span>PH / FIELD NOTES</span><span>01—03</span></div>
           <div class="house-mark" aria-hidden="true"><span class="roof"></span><span class="house-body"></span><span class="house-window window-one"></span><span class="house-window window-two"></span><span class="house-door"></span></div>
           <div class="board-copy"><p class="card-kicker">The useful intersection</p><h2>People first. Systems that help.</h2><p>Technology should make a real estate experience feel more personal, not more complicated.</p></div>
@@ -51,7 +62,7 @@
         <a class="work-item" href="mailto:phammon@ellisonrealty.com?subject=I'm%20planning%20ahead"><span>03</span><strong>Planning ahead</strong><small>Get oriented before a decision becomes urgent.</small><b aria-hidden="true">↗</b></a>
       </div></div></section>
 
-      <section class="section" id="about"><div class="wrap about-grid"><div class="about-stamp" aria-label="Patrick Hammon initials">PH<span>OCALA / NEXT MOVE</span></div><div><p class="eyebrow">A little more about me</p><h2>Curious about how things work. Even more curious about what you need.</h2><p class="lede">I work at the intersection of people, property, and technology. As a software engineer, I’m comfortable with complexity. As your real estate professional, I know the point is to make your experience feel simpler.</p><div class="tag-row"><span>Ocala, FL</span><span>Coldwell Banker</span><span>Software engineer</span></div></div></div></section>
+      <section class="section" id="about"><div class="wrap about-grid"><figure class="about-photo"><img src="assets/patrick-avatar.png" alt="Patrick Hammon smiling in a light blue shirt and tie"><figcaption>People first. Systems that help.</figcaption></figure><div><p class="eyebrow">A little more about me</p><h2>Curious about how things work. Even more curious about what you need.</h2><p class="lede">I work at the intersection of people, property, and technology. As a software engineer, I’m comfortable with complexity. As your real estate professional, I know the point is to make your experience feel simpler.</p><div class="tag-row"><span>Ocala, FL</span><span>Coldwell Banker</span><span>Software engineer</span></div></div></div></section>
 
       <section class="section faq-section"><div class="wrap faq-grid"><div><p class="eyebrow">Start here</p><h2>Questions are welcome.</h2><p class="section-intro">A low-pressure conversation can be useful even when your timeline is still a sketch.</p></div><div class="faq-list">
         <article class="faq-item"><button class="faq-button" type="button" data-faq-button><span>Do I need to be ready to buy or sell?</span><span>+</span></button><div class="faq-answer"><p>No. A first conversation can simply help you understand the landscape and decide what makes sense next.</p></div></article>
