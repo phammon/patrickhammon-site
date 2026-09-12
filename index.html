@@ -11,10 +11,12 @@
   <link rel="stylesheet" href="assets/styles.css">
   <style>
     .hero{padding:2.75rem 0 3.5rem}
+    .hero-grid{align-items:start}
     .profile-photo{width:min(100%,340px);margin:0 0 1.35rem;border:1px solid rgba(157,212,232,.27);background:#071a2b}
     .profile-photo img{display:block;width:100%;height:390px;object-fit:cover;object-position:center top;filter:saturate(.9)}
     .profile-photo figcaption{padding:.7rem .85rem;color:var(--muted);font:400 .62rem "DM Mono",monospace;letter-spacing:.1em;text-transform:uppercase}
     @media(max-width:900px){.hero-grid{gap:1.5rem}.profile-photo{margin-right:auto;margin-left:auto}}
+    @media(min-width:761px){.hero-grid{grid-template-columns:minmax(0,.96fr) minmax(300px,.78fr);gap:clamp(1.5rem,4vw,4rem)}}
     @media(max-width:680px){.hero{padding-top:3.25rem}.profile-photo img{height:360px}}
   </style>
 </head>
