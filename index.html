@@ -17,17 +17,27 @@
     .profile-photo figcaption{padding:.7rem .85rem;color:var(--muted);font:400 .62rem "DM Mono",monospace;letter-spacing:.1em;text-transform:uppercase}
     @media(max-width:900px){.hero-grid{gap:1.5rem}.profile-photo{margin-right:auto;margin-left:auto}}
     @media(min-width:761px){.hero-grid{grid-template-columns:minmax(0,.96fr) minmax(300px,.78fr);gap:clamp(1.5rem,4vw,4rem)}}
-    @media(max-width:680px){.hero{padding-top:3.25rem}.profile-photo img{height:360px}}
+    .contact-form{display:grid;gap:1rem;max-width:760px;margin:2rem auto 0;text-align:left}
+    .contact-form .field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .contact-form label{display:grid;gap:.45rem;color:var(--cream);font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .contact-form input,.contact-form select,.contact-form textarea{width:100%;border:1px solid rgba(245,240,230,.22);border-radius:0;background:rgba(3,17,29,.45);color:var(--cream);font:inherit;padding:.85rem 1rem;outline:none}
+    .contact-form textarea{min-height:130px;resize:vertical}
+    .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(216,173,101,.14)}
+    .contact-form button:disabled{cursor:wait;opacity:.65}
+    .form-status{display:none;margin:0;color:var(--muted);font-size:.85rem}
+    .form-status.is-visible{display:block}.form-status.is-success{color:var(--blue)}.form-status.is-error{color:#f2a6a6}
+    .form-website-trap{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;opacity:0!important}
+    @media(max-width:680px){.hero{padding-top:3.25rem}.profile-photo img{height:360px}.contact-form .field-row{grid-template-columns:1fr}}
   </style>
 </head>
-<body>
+<body data-api-base-url="https://www.wizzycrm.com/api" data-lead-subdomain="patrick-hammon">
   <div class="site-shell">
     <header class="site-header"><div class="wrap nav-row">
       <a class="brand" href="index.html"><span class="brand-mark">PH</span><span><strong>Patrick Hammon</strong><small>Coldwell Banker Ellison Realty</small></span></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>Menu</button>
       <nav id="site-nav" class="site-nav" aria-label="Primary">
         <a href="#approach">Approach</a><a href="#work">How I help</a><a href="#about">About</a>
-        <a class="button button-primary" href="mailto:phammon@ellisonrealty.com?subject=Let's%20talk%20about%20real%20estate">Start a conversation</a>
+        <a class="button button-primary" href="#contact">Start a conversation</a>
       </nav>
     </div></header>
 
@@ -37,7 +47,7 @@
           <p class="eyebrow">Ocala, Florida · Real estate + technology</p>
           <h1>A clearer way to make your next move.</h1>
           <p class="lede">I’m Patrick Hammon, a Coldwell Banker Ellison Realty real estate professional and software engineer. I bring organized thinking, useful technology, and steady communication to one of life’s biggest decisions.</p>
-          <div class="hero-actions"><a class="button button-primary" href="mailto:phammon@ellisonrealty.com?subject=Let's%20talk%20about%20my%20next%20move">Let’s talk</a><a class="button button-secondary" href="#approach">See my approach <span aria-hidden="true">↓</span></a></div>
+          <div class="hero-actions"><a class="button button-primary" href="#contact">Let’s talk</a><a class="button button-secondary" href="#approach">See my approach <span aria-hidden="true">↓</span></a></div>
           <p class="support-copy">Buying, selling, or simply planning ahead? Call <a href="tel:4102992029">410-299-2029</a> or send a note. A good first conversation does not need a deadline.</p>
         </div>
         <aside class="signal-board" aria-label="Patrick's working philosophy">
@@ -57,9 +67,9 @@
       </div></section>
 
       <section class="section section-contrast" id="work"><div class="wrap work-grid"><div><p class="eyebrow">How I can help</p><h2>Whether the move is immediate or still taking shape.</h2><p class="lede">You do not need to have the whole plan figured out before reaching out. We can start with the question that is easiest to ask.</p></div><div class="work-list">
-        <a class="work-item" href="mailto:phammon@ellisonrealty.com?subject=I'm%20thinking%20about%20buying"><span>01</span><strong>Buying a home</strong><small>Explore options with a process that stays human.</small><b aria-hidden="true">↗</b></a>
-        <a class="work-item" href="mailto:phammon@ellisonrealty.com?subject=I'm%20thinking%20about%20selling"><span>02</span><strong>Selling a home</strong><small>Think through timing, positioning, and your next chapter.</small><b aria-hidden="true">↗</b></a>
-        <a class="work-item" href="mailto:phammon@ellisonrealty.com?subject=I'm%20planning%20ahead"><span>03</span><strong>Planning ahead</strong><small>Get oriented before a decision becomes urgent.</small><b aria-hidden="true">↗</b></a>
+        <a class="work-item" href="#contact"><span>01</span><strong>Buying a home</strong><small>Explore options with a process that stays human.</small><b aria-hidden="true">↗</b></a>
+        <a class="work-item" href="#contact"><span>02</span><strong>Selling a home</strong><small>Think through timing, positioning, and your next chapter.</small><b aria-hidden="true">↗</b></a>
+        <a class="work-item" href="#contact"><span>03</span><strong>Planning ahead</strong><small>Get oriented before a decision becomes urgent.</small><b aria-hidden="true">↗</b></a>
       </div></div></section>
 
       <section class="section" id="about"><div class="wrap about-grid"><div class="about-stamp" aria-label="Patrick Hammon initials">PH<span>OCALA / NEXT MOVE</span></div><div><p class="eyebrow">A little more about me</p><h2>Curious about how things work. Even more curious about what you need.</h2><p class="lede">I work at the intersection of people, property, and technology. As a software engineer, I’m comfortable with complexity. As your real estate professional, I know the point is to make your experience feel simpler.</p><div class="tag-row"><span>Ocala, FL</span><span>Coldwell Banker</span><span>Software engineer</span></div></div></div></section>
@@ -69,7 +79,7 @@
         <article class="faq-item"><button class="faq-button" type="button" data-faq-button><span>What does technology change?</span><span>+</span></button><div class="faq-answer"><p>Used well, it gives you better visibility, cleaner communication, and fewer avoidable surprises. The relationship still comes first.</p></div></article>
         <article class="faq-item"><button class="faq-button" type="button" data-faq-button><span>How do we get started?</span><span>+</span></button><div class="faq-answer"><p>Send a note with whatever you know so far, or call <a href="tel:4102992029">410-299-2029</a>. I’ll respond and we can take it from there.</p></div></article>
       </div></div></section>
-      <section class="closing-cta"><div class="wrap closing-inner"><p class="eyebrow">Your next move can start small</p><h2>Let’s make the complicated parts clearer.</h2><a class="button button-primary" href="mailto:phammon@ellisonrealty.com?subject=Let's%20talk%20about%20my%20next%20move">Email Patrick <span aria-hidden="true">↗</span></a></div></section>
+      <section class="closing-cta" id="contact"><div class="wrap closing-inner"><p class="eyebrow">Your next move can start small</p><h2>Let’s make the complicated parts clearer.</h2><form class="contact-form" data-lead-form data-lead-type="General" data-campaign="Patrick personal site" data-form-name="Patrick contact form" data-success-message="Thanks. Your note is in my CRM, and I’ll follow up soon."><div class="field-row"><label>First name<input name="firstName" autocomplete="given-name" required></label><label>Last name<input name="lastName" autocomplete="family-name" required></label></div><div class="field-row"><label>Email<input name="email" type="email" autocomplete="email"></label><label>Phone<input name="phone" type="tel" autocomplete="tel"></label></div><label>What can I help with?<select name="timeline"><option value="">Select one</option><option>Buying a home</option><option>Selling a home</option><option>Planning ahead</option><option>Something else</option></select></label><label>Message<textarea name="message" placeholder="Tell me a little about what is on your mind."></textarea></label><input class="form-website-trap" name="website" tabindex="-1" autocomplete="off"><div><button class="button button-primary" type="submit">Send my note <span aria-hidden="true">↗</span></button></div><p class="form-status" data-form-status role="status" aria-live="polite"></p></form></div></section>
     </main>
     <footer class="site-footer"><div class="wrap footer-row"><div><strong>Patrick Hammon</strong><span>Real estate + technology · Ocala, FL</span></div><div><a href="tel:4102992029">410-299-2029</a><a href="mailto:phammon@ellisonrealty.com">phammon@ellisonrealty.com</a></div><span>© <span data-year></span> Patrick Hammon</span></div></footer>
   </div>
