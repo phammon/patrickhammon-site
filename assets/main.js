@@ -103,3 +103,36 @@ function setLeadStatus(status, kind, message) {
   status.classList.toggle('is-success', kind === 'success');
   status.classList.toggle('is-error', kind === 'error');
 }
+
+const paymentInputs = ['tool-price', 'tool-down', 'tool-rate', 'tool-term']
+  .map((id) => document.getElementById(id))
+  .filter(Boolean)
+const paymentResult = document.getElementById('payment-result')
+
+function updatePaymentEstimate() {
+  if (!paymentResult || paymentInputs.length !== 4) return
+  const [price, down, rate, term] = paymentInputs.map((input) => Number(input.value) || 0)
+  const principal = Math.max(price - down, 0)
+  const months = Math.max(term * 12, 1)
+  const monthlyRate = rate / 100 / 12
+  const payment = monthlyRate === 0
+    ? principal / months
+    : principal * (monthlyRate * (1 + monthlyRate) ** months) / ((1 + monthlyRate) ** months - 1)
+  paymentResult.textContent = `Estimated principal and interest: ${formatCurrency(payment)} / month`
+}
+
+paymentInputs.forEach((input) => input.addEventListener('input', updatePaymentEstimate))
+updatePaymentEstimate()
+
+const checklistResult = document.getElementById('checklist-result')
+const checklistItems = [...document.querySelectorAll('.tool-list input[type="checkbox"]')]
+function updateChecklist() {
+  if (!checklistResult) return
+  const complete = checklistItems.filter((item) => item.checked).length
+  checklistResult.textContent = `${complete} of ${checklistItems.length} steps complete`
+}
+checklistItems.forEach((item) => item.addEventListener('change', updateChecklist))
+
+function formatCurrency(value) {
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value)
+}

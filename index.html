@@ -27,6 +27,16 @@
     .form-status{display:none;margin:0;color:var(--muted);font-size:.85rem}
     .form-status.is-visible{display:block}.form-status.is-success{color:var(--blue)}.form-status.is-error{color:#f2a6a6}
     .form-website-trap{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;opacity:0!important}
+    .tools-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:2rem}
+    .tool-card{padding:1.35rem;border:1px solid rgba(7,26,43,.16);background:rgba(255,255,255,.72)}
+    .tool-card h3{margin:.25rem 0 .65rem;font:700 1.35rem Fraunces,serif}
+    .tool-card label{display:grid;gap:.35rem;margin-top:1rem;color:#28738d;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .tool-card input{width:100%;border:1px solid rgba(7,26,43,.2);background:rgba(255,255,255,.72);color:var(--ink);padding:.7rem .75rem}
+    .tool-result{margin-top:1rem;padding:.8rem;background:rgba(157,212,232,.18);color:var(--ink);font-size:.85rem;font-weight:700}
+    .tool-list{display:grid;gap:.7rem;margin:1rem 0 0;padding:0;list-style:none}
+    .tool-list label{display:flex;grid-template-columns:none;align-items:flex-start;gap:.6rem;margin:0;color:var(--ink);font-size:.85rem;font-weight:600;letter-spacing:0;text-transform:none}
+    .tool-list input{width:auto;margin-top:.2rem}
+    @media(max-width:680px){.hero{padding-top:3.25rem}.profile-photo img{height:360px}.contact-form .field-row{grid-template-columns:1fr}.tools-grid{grid-template-columns:1fr}}
     @media(max-width:680px){.hero{padding-top:3.25rem}.profile-photo img{height:360px}.contact-form .field-row{grid-template-columns:1fr}}
   </style>
 </head>
@@ -36,7 +46,7 @@
       <a class="brand" href="index.html"><span class="brand-mark">PH</span><span><strong>Patrick Hammon</strong><small>Coldwell Banker Ellison Realty</small></span></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>Menu</button>
       <nav id="site-nav" class="site-nav" aria-label="Primary">
-        <a href="#approach">Approach</a><a href="#work">How I help</a><a href="#about">About</a>
+        <a href="#approach">Approach</a><a href="#tools">Tools</a><a href="#work">How I help</a><a href="#about">About</a>
         <a class="button button-primary" href="#contact">Start a conversation</a>
       </nav>
     </div></header>
@@ -62,9 +72,11 @@
 
       <section class="section" id="approach"><div class="wrap split-heading"><div><p class="eyebrow">A different kind of advantage</p><h2>Good process creates room for good decisions.</h2></div><p class="section-intro">Real estate has enough moving parts. My role is to make the important ones easier to see, understand, and act on.</p></div><div class="wrap card-grid three-up">
         <article class="feature-card feature-card-light"><span>01</span><h3>Clear thinking</h3><p>I ask better questions, organize the details, and keep the conversation grounded in what matters to you.</p></article>
-        <article class="feature-card feature-card-dark"><span>02</span><h3>Useful technology</h3><p>My engineering background helps me use tools with intention, reducing friction without losing the human part.</p></article>
+        <article class="feature-card feature-card-dark"><span>02</span><h3>Tools that clarify</h3><p>Use the payment estimate and seller checklist below to get oriented before we talk through the details together.</p></article>
         <article class="feature-card feature-card-gold"><span>03</span><h3>Steady follow-through</h3><p>Plans are only useful when they keep moving. You can expect direct communication and thoughtful next steps.</p></article>
       </div></section>
+
+      <section class="section section-contrast" id="tools"><div class="wrap"><div class="split-heading"><div><p class="eyebrow">Tools you can use</p><h2>See the technology angle in action.</h2></div><p class="section-intro">These small tools help turn a vague question into a better first conversation. The numbers are estimates, not a loan or pricing quote.</p></div><div class="tools-grid"><article class="tool-card"><p class="card-kicker">Buyer planning</p><h3>Monthly payment estimate</h3><p>Adjust the price, down payment, rate, and term to get a starting point.</p><label>Home price<input id="tool-price" type="number" min="0" step="1000" value="350000"></label><label>Down payment<input id="tool-down" type="number" min="0" step="1000" value="70000"></label><label>Interest rate<input id="tool-rate" type="number" min="0" step="0.1" value="6.5"></label><label>Loan term (years)<input id="tool-term" type="number" min="1" step="1" value="30"></label><p class="tool-result" id="payment-result" aria-live="polite"></p></article><article class="tool-card"><p class="card-kicker">Seller preparation</p><h3>Listing readiness checklist</h3><p>A simple place to organize the work before a pricing conversation.</p><div class="tool-list"><label><input type="checkbox">Walk through repairs and deferred maintenance</label><label><input type="checkbox">Gather utility, tax, HOA, and improvement details</label><label><input type="checkbox">Decide on timing and what happens after the sale</label><label><input type="checkbox">Prepare questions about pricing and marketing</label></div><p class="tool-result" id="checklist-result" aria-live="polite">0 of 4 steps complete</p></article></div></div></section>
 
       <section class="section section-contrast" id="work"><div class="wrap work-grid"><div><p class="eyebrow">How I can help</p><h2>Whether the move is immediate or still taking shape.</h2><p class="lede">You do not need to have the whole plan figured out before reaching out. We can start with the question that is easiest to ask.</p></div><div class="work-list">
         <a class="work-item" href="#contact"><span>01</span><strong>Buying a home</strong><small>Explore options with a process that stays human.</small><b aria-hidden="true">↗</b></a>
