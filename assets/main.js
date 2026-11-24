@@ -33,6 +33,10 @@ const siteConfig = {
   apiBaseUrl: document.body.dataset.apiBaseUrl || 'https://www.wizzycrm.com/api',
   subdomain: document.body.dataset.leadSubdomain || 'patrick-hammon',
 };
+const leadAttributionParams = new URLSearchParams(window.location.search);
+const isBlogLead = leadAttributionParams.get('lead_source') === 'blog';
+const articleSlug = leadAttributionParams.get('article_slug') || '';
+const isValidBlogArticleSlug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(articleSlug);
 
 document.querySelectorAll('[data-lead-form]').forEach((form) => {
   form.dataset.formStartedAt = String(Date.now());
@@ -72,8 +76,12 @@ document.querySelectorAll('[data-lead-form]').forEach((form) => {
           timeline: String(formData.get('timeline') || '').trim() || null,
           message: String(formData.get('message') || '').trim() || null,
           leadType: 'General',
-          campaign: form.dataset.campaign || 'Patrick personal site',
-          landingPage: window.location.pathname,
+          campaign: isBlogLead
+            ? isValidBlogArticleSlug ? `Patrick blog: ${articleSlug}` : 'Patrick blog'
+            : form.dataset.campaign || 'Patrick personal site',
+          landingPage: isBlogLead && isValidBlogArticleSlug
+            ? `/blog/${articleSlug}/`
+            : window.location.pathname,
           referrer: document.referrer || null,
           formSubmitted: form.dataset.formName || 'website form',
           deviceType: window.innerWidth < 768 ? 'mobile' : window.innerWidth < 1100 ? 'tablet' : 'desktop',
